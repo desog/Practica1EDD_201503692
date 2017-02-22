@@ -16,11 +16,13 @@ public class Nodoldoble {
     public Nodoldoble siguienteldoble;
     public Nodoldoble anteriorldoble;
     public Nododatos nodoabajo;
-    
+    public int contador;
+   
 
-    public Nodoldoble(String nombre) {
+    public Nodoldoble(String nombre, int contador) {
         
         this.Nombre = nombre;
+        this.contador=contador;
       //  tipo= Tipo;
      
 

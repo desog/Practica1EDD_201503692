@@ -24,6 +24,7 @@ import org.jdom2.input.SAXBuilder;
 public class CargaXML {
     
 public     ListaSimple lista = new ListaSimple();
+public Lista_Circular.Lista  listadoble = new Lista_Circular.Lista("jugadores");
 
   public void cargarXml(File xml)
 {
@@ -131,4 +132,47 @@ public     ListaSimple lista = new ListaSimple();
         Escritura esc = new Escritura();
         esc.graficar();
     }
+  
+  public void jugadores(Lista_Circular.Lista  listadoble){
+   int tmp = listadoble.Size()-1;
+   
+    FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            
+            fichero = new FileWriter("C:\\Users\\Diego\\Documents\\Estructuras\\jugadores.txt");
+            pw = new PrintWriter(fichero);
+            pw.println("digraph{ rankdir=same");
+           while(tmp > 0 ) {
+           if(tmp !=1){
+       pw.println("\""+listadoble.get(tmp).toString()+"\""+"->"+"\""+listadoble.get(tmp-1).toString()+"\"");
+       int c = 6;
+       while(c > 0 ){
+            pw.println("\""+listadoble.get(tmp).toString()+"\""+"->"+"\""+listadoble.getabajo(c).toString()+"\"");
+            c--;
+       }
+       } else {
+           pw.println("\""+lista.get(tmp).toString()+"\"");
+           }
+        tmp--;
+        }
+                
+           pw.println("}");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           // Nuevamente aprovechamos el finally para 
+           // asegurarnos que se cierra el fichero.
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+        Escritura esc = new Escritura();
+        esc.graficar();
+  }
+          
   }

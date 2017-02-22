@@ -7,12 +7,15 @@ package eddpractica1_201503692;
 
 import javax.swing.JOptionPane;
 import Lista_Circular.*;
+import java.util.List;
 /**
  *
  * @author Diego
  */
 public class Jugadores extends javax.swing.JFrame {
-Lista listacir = new Lista("listacir");
+public Lista listacir = new Lista("listacir");
+public  List<String> disponibles;
+public Fichas nueva = new Fichas();
     /**
      * Creates new form Jugadores
      */
@@ -100,17 +103,31 @@ Lista listacir = new Lista("listacir");
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        
+        disponibles = nueva.mostrarfichas();
         if (jTextField1.getText()=="") {
             JOptionPane.showConfirmDialog(null, "Ingrese un nombre");
         } else {
             listacir.push(jTextField1.getText());
             listacir.mostrar();
             
+            for(int contador = 1; contador<= 6; contador++){
+            
+            listacir.insertarabajofrente(jTextField1.getText(),disponibles.get(contador),contador);
+           
+            }
+            listacir.mostrardatos(jTextField1.getText());
+            
+            
+            
+            
         }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CargaXML carga = new CargaXML();
+        carga.jugadores(listacir);
         Juego j = new Juego();
         this.setVisible(false);
         j.setVisible(true);

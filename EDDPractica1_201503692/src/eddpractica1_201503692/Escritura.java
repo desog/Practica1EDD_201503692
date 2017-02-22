@@ -35,5 +35,31 @@ public class Escritura {
   ex.printStackTrace();
   }
   }
+  
+  public void graficarFichas(){
+  try{
+  String dotPath ="C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
+  
+  String fileInputPath = "C:\\Users\\Diego\\Documents\\Estructuras\\fihcas.txt";
+  String fileOutputPath = "C:\\Users\\Diego\\Documents\\Estructuras\\fichas.jpg";
+  
+  String tParam = "-Tjpg";
+  String tOParam = "-o";
+  
+  String[] cmd = new String[5];
+  
+  cmd[0] = dotPath;
+  cmd[1] = tParam;
+  cmd[2] = fileInputPath;
+  cmd[3] = tOParam;
+  cmd[4] = fileOutputPath;
+  
+  Runtime rt = Runtime.getRuntime();
+  rt.exec(cmd);
+  
+  } catch(Exception ex){
+  ex.printStackTrace();
+  }
+  }
 
 }

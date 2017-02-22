@@ -12,12 +12,13 @@ package Lista_Circular;
 public class Nododatos {
     public Object dato;
     public Nododatos siguiente;
+    public Nododatos anterior;
+    public int conta=1;
     
-    
-    public Nododatos(Object dato, Nododatos siguiente) {
+    public Nododatos(Object dato, Nododatos siguiente,int conta) {
         this.dato = dato;
         this.siguiente = siguiente;
-        
+        this.conta=conta;
 
     }
 
