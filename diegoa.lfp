@@ -1,0 +1,15 @@
+MiMatriz = [1,2,3;4,5,6;7,8,9]
+mostrar(MiMatriz)
+MiMatriz2 = MiMatriz^2
+mostrar(MiMatriz2)
+size(MiMatriz)
+sum(MiMatriz)
+max(MiMatriz)
+min(MiMatriz)
+MiMatriz3 = MiMatriz1 &* MiMatriz2
+mostrar(MiMatriz3)
+det(MiMatriz2)
+D=[1,2,3;4,5,6]
+A=[1,2,3;4,5,6]
+F=D*A
+T4=2+2*5+1.22/4^2
